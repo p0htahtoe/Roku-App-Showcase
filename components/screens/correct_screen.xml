@@ -21,6 +21,7 @@
         translation="[200, 500]"
         layoutDirection="horiz"
         itemSpacings="[200, 0]" 
+        horizAlign="center"
         id="result"
         textColor="0x000000"
         />
