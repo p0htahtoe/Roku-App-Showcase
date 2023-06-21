@@ -1,37 +1,43 @@
 {
 	"questions":[
 	{
-		"text": "Question 1",
+		"text": "What is BrightScript?",
 		"options": [
-			{"id": "opt 1", "value": true},
-			{"id": "opt 2", "value": false},
-			{"id": "opt 3", "value": false},
-			{"id": "opt 4", "value": false}
+			{"id": "A programming language used by Roku", "value": true},
+			{"id": "A script for a play", "value": false},
+			{"id": "Something to do with coding", "value": false},
+			{"id": "A lightbulb brand", "value": false}
 		]},
 	{
-		"text": "Question 2",
+		"text": "ex = 1.2$ What will type(ex) return?",
 		"options": [
-			{"id": "opt 1", "value": true},
-			{"id": "opt 2", "value": false},
-			{"id": "opt 3", "value": false},
-			{"id": "opt 4", "value": false}
+			{"id": "String", "value": true},
+			{"id": "Integer", "value": false},
+			{"id": "Float", "value": false},
+			{"id": "Boolean", "value": false}
 		]},
 	{
-		"text": "Question 3",
+		"text": "What two languages do Roku screens require?",
 		"options": [
-			{"id": "opt 1", "value": true},
-			{"id": "opt 2", "value": false},
-			{"id": "opt 3", "value": false},
-			{"id": "opt 4", "value": false}
+			{"id": "Basic and BrightScript", "value": false},
+			{"id": "XML and Java", "value": false},
+			{"id": "SceneGraph and BrightScript", "value": true},
+			{"id": "HTML and CSS", "value": false}
 		]},
 	{
-		"text": "Question 4",
+		"text": "Every SceneGraph component must define an init() function.",
 		"options": [
-			{"id": "opt 1", "value": true},
-			{"id": "opt 2", "value": false},
-			{"id": "opt 3", "value": false},
-			{"id": "opt 4", "value": false}
-		]}
+			{"id": "True", "value": true},
+			{"id": "False", "value": false}
+		]},
+    {
+        "text": "How do you declare variables in BrightScript?",
+        "options": [
+            {"id": "Explicitly State variable type upon declaration to the LEFT of variable.", "value": false},
+            {"id": "It doesn't matter how you declare variables in BrightScript.", "value": false},
+            {"id": "You don't need to declare variables in BrightScript.", "value": true},
+            {"id": "Explicitly State variable type upon declaration to the RIGHT of variable.", "value": false}
+        ]}
         ]
 
 }
