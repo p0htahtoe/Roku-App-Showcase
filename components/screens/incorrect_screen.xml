@@ -18,7 +18,7 @@
         text="YOU ARE INCORRECT!"
         color="0x000000" />
     <ButtonGroup
-        translation="[200, 500]"
+        translation="[500, 500]"
         layoutDirection="horiz"
         itemSpacings="[200, 0]"
         id="incorrect_result"
