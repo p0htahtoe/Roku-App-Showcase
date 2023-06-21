@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="home_scene" extends="Scene" initialFocus="answer_screen">
+    <script type="text/brightscript" uri="pkg:/components/home_scene.brs" />
+    <children>
+        <answer_screen
+            id="answer_screen"
+            visible="true"
+            translation="[0,0]" />
+        <correct_screen
+            id="correct_screen"
+            visible="false"
+            translation="[0,0]" />
+            <incorrect_screen
+            id="incorrect_screen"
+            visible="false"
+            translation="[0,0]" />
+    </children>
+</component>

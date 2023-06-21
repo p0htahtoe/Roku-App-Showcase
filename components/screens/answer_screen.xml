@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="answer_screen"
+  extends="Group"
+  >
+  <script type="text/brightscript" uri="pkg:/components/screens/answer_screen.brs" />
+  <interface>
+  <field id="answer_selected"
+          type="assocarray"
+          alias="answer_list.checkedItem"
+      />
+</interface>
+  <children>
+    <Poster 
+      id="question_background" 
+      uri="pkg:/images/question_screen.jpg" 
+      loadSync="true"
+      width="1920" 
+      height="1080" />
+    <!-- color="0x000000" -->
+    <Label
+      translation="[0, 145]"
+      width="1920"
+      height="1080"
+      horizAlign="center"
+      vertAlign="top"
+      id="questionText"
+      font="font:LargeBoldSystemFont"
+      text="Question 1:"
+      color="0x000000" />
+    <RadioButtonList
+      id="answer_list"
+      translation="[300, 300]"
+      itemSize="[400,50]"
+      itemSpacings="[200, 0]"
+    >
+      <ContentNode id="answers" role="content">
+        <answer_node title = "OPTION 1" value="correct"/>
+        <answer_node title = "OPTION 2" value="incorrect"/>
+        <answer_node title = "OPTION 3" value="incorrect"/>
+        <answer_node title = "OPTION 4" value="incorrect"/>
+      </ContentNode>
+    </RadioButtonList>
+  </children>
+</component>

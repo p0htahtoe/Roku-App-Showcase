@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="incorrect_screen" extends="Group">
+  <script type="text/brightscript" uri="pkg:/components/screens/incorrect_screen.brs" />
+  <interface>
+    <field id="retry_button"
+        type="assocarray"
+        alias="incorrect_result.buttonSelected" />
+  </interface>
+  <children>
+    <Label
+        translation="[0, 145]"
+        width="1920"
+        height="1080"
+        horizAlign="center"
+        vertAlign="top"
+        id="incorrect_env"
+        font="font:LargeBoldSystemFont"
+        text="YOU ARE INCORRECT!"
+        color="0x000000" />
+    <ButtonGroup
+        translation="[200, 500]"
+        layoutDirection="horiz"
+        itemSpacings="[774, 0]"
+        id="incorrect_result"
+        textColor="0x000000" />
+    <!-- <Button translation="[100, 200]" id="result" text="NEXT"/> -->
+  </children>
+</component>
