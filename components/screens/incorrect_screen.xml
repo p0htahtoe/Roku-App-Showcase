@@ -20,9 +20,10 @@
     <ButtonGroup
         translation="[200, 500]"
         layoutDirection="horiz"
-        itemSpacings="[774, 0]"
+        itemSpacings="[200, 0]"
         id="incorrect_result"
         textColor="0x000000" />
+        <!-- 774 for itemSpacings-->
     <!-- <Button translation="[100, 200]" id="result" text="NEXT"/> -->
   </children>
 </component>
