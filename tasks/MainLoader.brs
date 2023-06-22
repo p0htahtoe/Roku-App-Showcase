@@ -5,7 +5,7 @@ end sub
 sub GetContent()
     xfer = CreateObject("roURLTransfer")
     xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
-    xfer.SetURL("")
+    xfer.SetURL("https://jonathanbduval.com/roku/feeds/roku-developers-feed-v1.json")
     ' put webserver URL here
     rsp = xfer.GetToString()
     rootChildren = []

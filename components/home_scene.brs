@@ -32,6 +32,30 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
+	loadFeed("http://172.20.10.3:8080/Roku-App-Showcase/tasks/questions.json")
+end sub
+
+sub loadFeed(url)
+  m.feed_task = createObject("roSGNode", "loadTask")
+  m.feed_task.ObserveField("response", "onFeedResponse")
+  m.feed_task.url = url
+  m.feed_task.control = "RUN"
+  ? "LOADFEED RAN!"
+end sub
+
+sub onFeedResponse(obj)
+	?"onFeedResponse rannn rawwrr"
+	response = obj.getData()
+	data = parseJSON(response)
+	if data <> Invalid and data.items <> invalid
+        ? "FEED RESPONSES VALID YAYAY!"
+	else
+		? "FEED RESPONSE IS EMPTY!"
+	end if
+
+	for Each question in data.questions
+		? question.text
+	End for
 end sub
 
 sub answerCheck(answer_value)
