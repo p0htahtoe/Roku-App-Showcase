@@ -13,7 +13,7 @@ function request()
     http.InitClientCertificates()
     http.enablehostverification(false)
     http.enablepeerverification(false)
-    http.setUrl("http://172.20.10.3:8080/Roku-App-Showcase/tasks/questions.json")
+    http.setUrl(url)
     ?"ran loadTask?"
     if http.AsyncGetToString() Then
       msg = wait(10000, port)

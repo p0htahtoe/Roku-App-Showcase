@@ -32,7 +32,7 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	loadFeed("http://172.20.10.3:8080/Roku-App-Showcase/tasks/questions.json")
+	loadFeed("http://172.20.10.3:8080/Roku-App-Showcase/components/tasks/questions.json")
 end sub
 
 sub loadFeed(url)
