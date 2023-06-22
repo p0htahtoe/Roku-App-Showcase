@@ -25,7 +25,7 @@
       vertAlign="top"
       id="questionText"
       font="font:LargeBoldSystemFont"
-      text="Question 1:"
+      text="What is BrightScript?"
       color="0x000000" />
     <RadioButtonList
       id="answer_list"
@@ -34,10 +34,10 @@
       itemSpacings="[200, 0]"
     >
       <ContentNode id="answers" role="content">
-        <answer_node title = "OPTION 1" value="correct"/>
-        <answer_node title = "OPTION 2" value="incorrect"/>
-        <answer_node title = "OPTION 3" value="incorrect"/>
-        <answer_node title = "OPTION 4" value="incorrect"/>
+        <answer_node title = "A programming language used by Roku" value="correct"/>
+        <answer_node title = "A script for a play" value="incorrect"/>
+        <answer_node title = "Something to do with coding" value="incorrect"/>
+        <answer_node title = "A lightbulb brand" value="incorrect"/>
       </ContentNode>
     </RadioButtonList>
   </children>
