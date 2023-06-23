@@ -20,6 +20,14 @@ function init()
 	m.incorrect_screen.observeField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
+	' m.global.addFields("questionList", "roArray", true)
+	' m.global.questionList = CreateObject("roArray", 0, true)
+
+	m.questionArray = CreateObject("roArray", 0, true)
+	dim questionArray[0]
+	
+	m.curQuestion = 0
+	' m.global.addFields({questionList: questionList})
 end	function
 
 sub onAnswerSelected(obj)
@@ -32,7 +40,7 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	loadFeed("http://172.20.10.3:8080/Roku-App-Showcase/components/tasks/questions.json")
+	loadFeed("http://172.20.10.8:8080/components/tasks/questions.json")
 end sub
 
 sub loadFeed(url)
@@ -54,7 +62,11 @@ sub onFeedResponse(obj)
 	end if
 
 	for Each question in data.questions
-		? question.text
+		' ? question.text
+		' m.global.questionList.push(question)
+		' ? m.global.questionList
+		m.questionArray.push(question.text)
+		'? m.questionArray
 	End for
 end sub
 
@@ -71,6 +83,9 @@ sub answerCheck(answer_value)
 		label = m.top.findNode("questionText")
 		?"current title: ";label.text
 		label.text = "Question 2"
+
+		m.curQuestion += 1
+		? m.curQuestion
 
 	else if answer_value = "incorrect"
 		m.answer_screen.visible = false
