@@ -7,7 +7,7 @@
         alias="result.buttonSelected" />
   </interface>
   <children>
-    <Label
+    <!-- <Label
         translation="[0, 145]"
         width="1920"
         height="1080"
@@ -16,9 +16,9 @@
         id="correct_env"
         font="font:LargeBoldSystemFont"
         text="YOU ARE CORRECT!"
-        color="0x000000"/>
+        color="0x000000"/> -->
     <ButtonGroup
-        translation="[500, 500]"
+        translation="[1450, 900]"
         layoutDirection="horiz"
         itemSpacings="[200, 0]" 
         id="result"
