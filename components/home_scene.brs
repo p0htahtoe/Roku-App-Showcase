@@ -122,10 +122,10 @@ sub onButtonSelected(obj)
 	? m.answer_screen.hasFocus()
 	? m.correct_screen.hasFocus()
 
-	label = m.top.findNode("questionText")
-	?"current title: ";label.text
-	m.curQuestion += 1
-	label.text = m.ansArray
+	'label = m.top.findNode("questionText")
+	'?"current title: ";label.text
+	'm.curQuestion += 1
+	'label.text = m.ansArray
 
 	m.correct_screen.visible = false
 	m.answer_screen.visible = true
