@@ -30,7 +30,7 @@
     <RadioButtonList
       id="answer_list"
       translation="[300, 300]"
-      itemSize="[1000,50]"
+      itemSize="[1200,50]"
       itemSpacings="[200, 0]"
     >
       <ContentNode id="answers" role="content">

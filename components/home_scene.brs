@@ -1,7 +1,7 @@
 function init()
 	? "[home_scene] init"
 	m.top.backgroundColor = "0x000000FF"
-    m.top.backgroundURI = "pkg:/images/question_screen.jpg"
+    m.top.backgroundURI = "pkg:/images/question_screen.png"
 
 	' screen = CreateObject("roSGScreen")
     ' m.port = CreateObject("roMessagePort")
@@ -41,7 +41,7 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	loadFeed("http://172.20.10.8:8080/Roku-App-Showcase/components/tasks/questions.json")
+	loadFeed("http://172.20.10.4:8080/Roku-App-Showcase/components/tasks/questions.json")
 end sub
 
 sub loadFeed(url)
@@ -90,7 +90,7 @@ sub answerCheck(answer_value)
 		m.correct_screen.setFocus(true)
 		
 		m.top.backgroundColor = "0x339933"
-		m.top.backgroundURI = "pkg:/images/correct_screen.jpg"
+		m.top.backgroundURI = "pkg:/images/correct_screen.png"
 
 		?"current_screen: ";m.global.current_screen
 		label = m.top.findNode("questionText")
@@ -106,7 +106,7 @@ sub answerCheck(answer_value)
 		m.incorrect_screen.setFocus(true)
 
 		m.top.backgroundColor = "0x800000"
-		m.top.backgroundURI = "pkg:/images/incorrect_screen.jpg"
+		m.top.backgroundURI = "pkg:/images/incorrect_screen.png"
 		? "Wrong!"
 	end if
 end sub
@@ -120,7 +120,7 @@ sub onButtonSelected(obj)
 	? "BUTTON CLICKED BUTTON CLICKED !!"
 
 	m.top.backgroundColor = "0x000000"
-	m.top.backgroundURI = "pkg:/images/question_screen.jpg"
+	m.top.backgroundURI = "pkg:/images/question_screen.png"
 end sub
 
 sub onRetryButtonSelected(obj)
@@ -132,7 +132,7 @@ sub onRetryButtonSelected(obj)
 	? "RETRY BUTTON CLICKED RETRY BUTTON CLICKED !!"
 
 	m.top.backgroundColor = "0x000000"
-	m.top.backgroundURI = "pkg:/images/question_screen.jpg"
+	m.top.backgroundURI = "pkg:/images/question_screen.png"
 end sub
 
 
