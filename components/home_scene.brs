@@ -28,6 +28,7 @@ function init()
 	m.ansArray = arr
 
 	m.curQuestion = 0
+	m.curScore = 0
 
 end	function
 
@@ -43,6 +44,7 @@ sub onAnswerSelected(obj)
 	answerCheck(item.value)
 	loadFeed("http://172.20.10.8:8080/Roku-App-Showcase/components/tasks/questions.json")
 end sub
+' Gets the value of the answer selected and runs the answerCheck() function 
 
 sub loadFeed(url)
   m.feed_task = createObject("roSGNode", "loadTask")
@@ -51,6 +53,7 @@ sub loadFeed(url)
   m.feed_task.control = "RUN"
   ? "LOADFEED RAN!"
 end sub
+' Loads the feed
 
 sub onFeedResponse(obj)
 	?"onFeedResponse rannn rawwrr"
@@ -82,6 +85,7 @@ sub onFeedResponse(obj)
 	?m.optArray
 	?m.ansArray
 end sub
+' Tries to pull information from the json file
 
 sub answerCheck(answer_value)
 	if answer_value = "correct"
@@ -110,6 +114,9 @@ sub answerCheck(answer_value)
 		? "Wrong!"
 	end if
 end sub
+' This function checks if the user input is correct or incorrect
+' if the question is correct the visibility for the correct_screen will be true
+' if the question is incorrect the incorrect_screen will become visible
 
 sub onButtonSelected(obj)
 	? m.answer_screen.hasFocus()
@@ -122,6 +129,8 @@ sub onButtonSelected(obj)
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.jpg"
 end sub
+' This is the next button
+' It changes the visibility of the answer_screen 
 
 sub onRetryButtonSelected(obj)
 	? m.answer_screen.hasFocus()
@@ -134,6 +143,8 @@ sub onRetryButtonSelected(obj)
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.jpg"
 end sub
+' This is the back button
+' It does absolutely nothing, it is useless, we are gonna exterminate it
 
 
 function onKeyEvent(key, press) as Boolean
