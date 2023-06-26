@@ -18,20 +18,21 @@
       height="1080" />
     <!-- color="0x000000" -->
     <Label
-      translation="[0, 145]"
-      width="1920"
-      height="1080"
+      translation="[175, 270]"
+      width="1000"
+      height="400"
       horizAlign="center"
       vertAlign="top"
       id="questionText"
       font="font:LargeBoldSystemFont"
+      wrap="true"
       text="What is BrightScript?"
-      color="0x000000" />
+      color="0xFFFFFF" />
     <RadioButtonList
       id="answer_list"
-      translation="[300, 300]"
-      itemSize="[1200,50]"
-      itemSpacings="[200, 0]"
+      translation="[200, 550]"
+      itemSize="[1500,100]"
+      itemSpacings="[200, 100]"
     >
       <ContentNode id="answers" role="content">
         <answer_node title = "A programming language used by Roku" value="correct"/>
