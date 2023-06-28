@@ -22,10 +22,13 @@ function init()
 	m.answer_screen.setFocus(true)
 
 
-	m.questionArray = CreateObject("roArray", 0, true)
-	dim arr[0]
-	m.optArray = arr
-	m.ansArray = arr
+	
+	dim arrQue[0]
+    dim arrOpt[0]
+    dim arrAns[0]
+    m.questionArray = arrQue
+    m.optArray = arrOpt
+    m.ansArray = arrAns
 
 	m.curQuestion = 0
 	m.curScore = 0
@@ -42,7 +45,7 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	loadFeed("http://172.20.10.4:8080/Roku-App-Showcase/components/tasks/questions.json")
+	loadFeed("http://172.20.10.6:8080/components/tasks/questions.json")
 end sub
 ' Gets the value of the answer selected and runs the answerCheck() function 
 
@@ -74,7 +77,7 @@ sub onFeedResponse(obj)
 		' m.ansArray.push(question.options.value)
 		'? m.questionArray
 
-		for Each option in question
+		for Each option in question.options
 			m.optArray.push(option.id)
 			m.ansArray.push(option.value)
 		End for
