@@ -21,7 +21,7 @@ function init()
 
 	m.answer_screen.setFocus(true)
 
-
+	
 	
 	dim arrQue[0]
     dim arrOpt[0]
@@ -29,9 +29,12 @@ function init()
     m.questionArray = arrQue
     m.optArray = arrOpt
     m.ansArray = arrAns
+	
 
 	m.curQuestion = 0
 	m.curScore = 0
+
+	m.global.addFields({questionArray:m.questionArray})
 
 	loadFeed("http://172.20.10.8:8080/Roku-App-Showcase/components/tasks/questions.json")
 	updateScreen()
@@ -86,13 +89,20 @@ sub onFeedResponse(obj)
 			m.ansArray.push(option.value)
 		End for
 	End for
-	?"first answer";m.optArray.getEntry(0)
+
+	m.global.setFields({questionArray:m.questionArray})
+	?"m.questionArray: ";m.questionArray
+	?"m.global.questionArray: ";m.global.questionArray
+	'?m.optArray
+	'?m.ansArray
 end sub
 ' Pulls information from the json file and populates arrays
 
 sub updateScreen()
 	label = m.top.findNode("questionText")
-	?m.questionArray
+	?"current global questionArray: ";m.global.questionArray
+	' ?m.optArray
+	' ?m.ansArray
 	'label.text = m.questionArray[m.curQuestion]
 end sub
 
