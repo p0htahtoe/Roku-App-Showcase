@@ -33,7 +33,11 @@ function init()
 	m.curQuestion = 0
 	m.curScore = 0
 
+	loadFeed("http://172.20.10.8:8080/Roku-App-Showcase/components/tasks/questions.json")
+	updateScreen()
 end	function
+
+
 
 sub onAnswerSelected(obj)
 	list = m.answer_screen.findNode("answer_list")
@@ -45,7 +49,7 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	loadFeed("http://172.20.10.6:8080/components/tasks/questions.json")
+	
 end sub
 ' Gets the value of the answer selected and runs the answerCheck() function 
 
@@ -82,13 +86,15 @@ sub onFeedResponse(obj)
 			m.ansArray.push(option.value)
 		End for
 	End for
-
-
-	?m.questionArray
-	?m.optArray
-	?m.ansArray
+	?"first answer";m.optArray.getEntry(0)
 end sub
-' Tries to pull information from the json file
+' Pulls information from the json file and populates arrays
+
+sub updateScreen()
+	label = m.top.findNode("questionText")
+	?m.questionArray
+	'label.text = m.questionArray[m.curQuestion]
+end sub
 
 sub answerCheck(answer_value)
 	if answer_value = "correct"
