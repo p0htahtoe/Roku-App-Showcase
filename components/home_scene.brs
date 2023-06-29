@@ -30,15 +30,15 @@ function init()
     m.optArray = arrOpt
     m.ansArray = arrAns
 
-	m.curQuestion = -1
-	m.curScore = -1
+	m.curQuestion = 0
+	m.curScore = 0
 
 	'updateScreen()
 end	function
 
 sub updateScreen()
 	label = m.top.findNode("questionText")
-	label.text = m.questionArray.GetEntry(1)
+	'label.text = m.questionArray.GetEntry(1)
 	? m.questionArray
 end sub
 
@@ -79,24 +79,25 @@ sub onFeedResponse(obj)
 		' ? question.options.id
 		' m.global.questionList.push(question)
 		' ? m.global.questionList
-		m.questionArray.setEntry(m.curScore, question)
+		m.questionArray.push(question.text)
 		' m.optArray.push(question.options.id)
 		' m.ansArray.push(question.options.value)
 		'? m.questionArray
-		m.curScore += 1
+
 		for Each option in question.options
-			m.optArray.setEntry(m.curQuestion, option.id)
-			m.ansArray.setEntry(m.curQuestion, option.value)
-			m.curQuestion += 1
+			m.optArray.push(option.id)
+			m.ansArray.push(option.value)
+
 		End for
 	End for
 
-	globalvar = GetGlobalAA()
-	?globalvar.questionArray
+	' globalvar = GetGlobalAA()
+	' ?globalvar.questionArray
 
 	' ?m.questionArray
 	' ?m.optArray
 	' ?m.ansArray
+	updateScreen()
 end sub
 ' Tries to pull information from the json file
 
