@@ -21,7 +21,7 @@ function init()
 
 	m.answer_screen.setFocus(true)
 
-	
+
 	
 	dim arrQue[0]
     dim arrOpt[0]
@@ -29,18 +29,18 @@ function init()
     m.questionArray = arrQue
     m.optArray = arrOpt
     m.ansArray = arrAns
-	
 
-	m.curQuestion = 0
-	m.curScore = 0
+	m.curQuestion = -1
+	m.curScore = -1
 
-	m.global.addFields({questionArray:m.questionArray})
-
-	loadFeed("http://172.20.10.8:8080/Roku-App-Showcase/components/tasks/questions.json")
-	updateScreen()
+	'updateScreen()
 end	function
 
-
+sub updateScreen()
+	label = m.top.findNode("questionText")
+	label.text = m.questionArray.GetEntry(1)
+	? m.questionArray
+end sub
 
 sub onAnswerSelected(obj)
 	list = m.answer_screen.findNode("answer_list")
@@ -52,7 +52,7 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	
+	loadFeed("https://sthsroku.net/quizzers/questions.json")
 end sub
 ' Gets the value of the answer selected and runs the answerCheck() function 
 
@@ -79,32 +79,26 @@ sub onFeedResponse(obj)
 		' ? question.options.id
 		' m.global.questionList.push(question)
 		' ? m.global.questionList
-		m.questionArray.push(question.text)
+		m.questionArray.setEntry(m.curScore, question)
 		' m.optArray.push(question.options.id)
 		' m.ansArray.push(question.options.value)
 		'? m.questionArray
-
+		m.curScore += 1
 		for Each option in question.options
-			m.optArray.push(option.id)
-			m.ansArray.push(option.value)
+			m.optArray.setEntry(m.curQuestion, option.id)
+			m.ansArray.setEntry(m.curQuestion, option.value)
+			m.curQuestion += 1
 		End for
 	End for
 
-	m.global.setFields({questionArray:m.questionArray})
-	?"m.questionArray: ";m.questionArray
-	?"m.global.questionArray: ";m.global.questionArray
-	'?m.optArray
-	'?m.ansArray
-end sub
-' Pulls information from the json file and populates arrays
+	globalvar = GetGlobalAA()
+	?globalvar.questionArray
 
-sub updateScreen()
-	label = m.top.findNode("questionText")
-	?"current global questionArray: ";m.global.questionArray
+	' ?m.questionArray
 	' ?m.optArray
 	' ?m.ansArray
-	'label.text = m.questionArray[m.curQuestion]
 end sub
+' Tries to pull information from the json file
 
 sub answerCheck(answer_value)
 	if answer_value = "correct"
