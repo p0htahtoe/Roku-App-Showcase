@@ -3,14 +3,6 @@ function init()
 	m.top.backgroundColor = "0x000000FF"
     m.top.backgroundURI = "pkg:/images/question_screen.png"
 
-	' screen = CreateObject("roSGScreen")
-    ' m.port = CreateObject("roMessagePort")
-    ' screen.setMessagePort(m.port)
-	' m.global = screen.getGlobalNode()
-	' m.global.addFields("current_screen", "int", true)
-	' m.global.current_screen = 0
-	'm.global.questions = ["Question 1", "Question 2", "Question 3"]
-
     m.answer_screen = m.top.findNode("answer_screen")	
 	m.correct_screen = m.top.findNode("correct_screen")
 	m.incorrect_screen = m.top.findNode("incorrect_screen")
@@ -20,8 +12,6 @@ function init()
 	m.incorrect_screen.observeField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
-
-
 	
 	dim arrQue[0]
     dim arrOpt[0]
@@ -75,7 +65,6 @@ end sub
 ' Loads the feed
 
 sub onFeedResponse(obj)
-	?"onFeedResponse rannn rawwrr"
 	response = obj.getData()
 	data = parseJSON(response)
 	if data <> Invalid and data.items <> invalid
@@ -85,27 +74,14 @@ sub onFeedResponse(obj)
 	end if
 
 	for Each question in data.questions
-		' ? question.options.id
-		' m.global.questionList.push(question)
-		' ? m.global.questionList
 		m.questionArray.push(question.text)
-		' m.optArray.push(question.options.id)
-		' m.ansArray.push(question.options.value)
-		'? m.questionArray
-
 		for Each option in question.options
 			m.optArray.push(option.id)
 			m.ansArray.push(option.value)
-
 		End for
 	End for
 
-	' globalvar = GetGlobalAA()
-	' ?globalvar.questionArray
 
-	' ?m.questionArray
-	' ?m.optArray
-	' ?m.ansArray
 	updateScreen()
 end sub
 ' Tries to pull information from the json file
@@ -142,11 +118,6 @@ sub onButtonSelected(obj)
 	? m.answer_screen.hasFocus()
 	? m.correct_screen.hasFocus()
 
-	'label = m.top.findNode("questionText")
-	'?"current title: ";label.text
-	'm.curQuestion += 1
-	'label.text = m.ansArray
-
 	m.correct_screen.visible = false
 	m.answer_screen.visible = true
 	m.answer_screen.setFocus(true)
@@ -171,8 +142,7 @@ sub onRetryButtonSelected(obj)
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
 end sub
-' This is the back button
-' It does absolutely nothing, it is useless, we are gonna exterminate it
+' This is the next button on the incorrect screen
 
 
 function onKeyEvent(key, press) as Boolean
