@@ -31,8 +31,7 @@ end	function
 sub updateScreen()
 	label = m.top.findNode("questionText")
 	answer_list = m.top.findNode("answer_list")
-	
-
+	answer_list.checkedItem =-1
 	for i=0 to 3
 		answer_list.content.getChild(i).title = m.optArray.getEntry(m.curIndex)
 		answer_list.content.getChild(i).value = m.ansArray.getEntry(m.curIndex)
@@ -46,6 +45,7 @@ sub updateScreen()
 	?"updateScreen() questionArray: "; m.questionArray
 
 	
+
 	
 end sub
 
@@ -113,6 +113,7 @@ sub answerCheck(answer_value)
 		? "Wrong!"
 	end if
 
+	
 	m.global.curQuestion += 1
 	updateScreen()
 
