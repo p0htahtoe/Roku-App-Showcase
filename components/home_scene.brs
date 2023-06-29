@@ -21,7 +21,7 @@ function init()
     m.ansArray = arrAns
 
 	m.curQuestion = 0
-	m.curScore = 0
+	m.curIndex = 0
 
 	m.global.addFields({curQuestion:m.curQuestion})
 
@@ -31,14 +31,21 @@ end	function
 sub updateScreen()
 	label = m.top.findNode("questionText")
 	answer_list = m.top.findNode("answer_list")
-	options = answer_list.content.getChild(0).title
 	
+
+	for i=0 to 3
+		answer_list.content.getChild(i).title = m.optArray.getEntry(m.curIndex)
+		answer_list.content.getChild(i).value = m.ansArray.getEntry(m.curIndex)
+		?"options: "; answer_list.content.getChild(i).title
+		?"value: "; answer_list.content.getChild(i).value
+		m.curIndex += 1
+	end for
 
 	label.text = m.questionArray.GetEntry(m.global.curQuestion)
 	?"curQuestion: ";m.global.curQuestion
 	?"updateScreen() questionArray: "; m.questionArray
 
-	?"options: ";options
+	
 	
 end sub
 
@@ -87,7 +94,7 @@ end sub
 ' Tries to pull information from the json file
 
 sub answerCheck(answer_value)
-	if answer_value = "correct"
+	if answer_value = "1"
 		m.answer_screen.visible = false
 		m.correct_screen.visible = true
 		m.correct_screen.setFocus(true)
@@ -96,7 +103,7 @@ sub answerCheck(answer_value)
 		m.top.backgroundURI = "pkg:/images/correct_screen.png"
 
 
-	else if answer_value = "incorrect"
+	else if answer_value = "0"
 		m.answer_screen.visible = false
 		m.incorrect_screen.visible = true
 		m.incorrect_screen.setFocus(true)
