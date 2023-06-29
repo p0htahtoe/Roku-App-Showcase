@@ -32,11 +32,14 @@ sub updateScreen()
 	label = m.top.findNode("questionText")
 	answer_list = m.top.findNode("answer_list")
 	answer_list.checkedItem =-1
+	
 	for i=0 to 3
-		answer_list.content.getChild(i).title = m.optArray.getEntry(m.curIndex)
-		answer_list.content.getChild(i).value = m.ansArray.getEntry(m.curIndex)
-		?"options: "; answer_list.content.getChild(i).title
-		?"value: "; answer_list.content.getChild(i).value
+		option = answer_list.content.getChild(i)
+		
+		option.title = m.optArray.getEntry(m.curIndex)
+		option.value = m.ansArray.getEntry(m.curIndex)
+		?"options: "; option.title
+		?"value: "; option.value
 		m.curIndex += 1
 	end for
 

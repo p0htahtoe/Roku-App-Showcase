@@ -27,9 +27,9 @@
 	{
 		"text": "Every SceneGraph component must define an init() function.",
 		"options": [
-			{"id": "True", "value": true},
+			{"id": "True", "value": false},
 			{"id": "False", "value": false},
-			{"id": "Only in some circumstances", "value": false},
+			{"id": "Only in some circumstances", "value": true},
 			{"id": "What's an init() function?", "value": false}
 		]},
     {
@@ -40,46 +40,46 @@
             {"id": "You don't need to declare variables in BrightScript.", "value": true},
             {"id": "Explicitly State variable type upon declaration to the RIGHT of variable.", "value": false}
         ]},
-		{
-			"text": "What are the four XML elements?",
-			"options": [
-				{"id": "<children>, <field>, <script>, <node>", "value": false},
-				{"id": "<component>, <child>, <parent>", "value": false},
-				{"id": "<component>, <interface>, <script>, <children>", "value": true},
-				{"id": "<interface>, <scene>, <?xml?>", "value": false}
-			]},
-		{
-			"text": "The following attributes are required to define <component>",
-			"options": [
-				{"id": "extends", "value": false},
-				{"id": "name", "value": true},
-				{"id": "version", "value": false},
-				{"id": "None of the above.", "value": false}
-			]},
-		{
-			"text": "What does the <script> attribute do?",
-			"options": [
-				{"id": "It adds meaning to the component.", "value": false},
-				{"id": "It allows the definition of functions to initialize the component.", "value": true},
-				{"id": "It defines the functions within the component.", "value": false},
-				{"id": "It allows the definition of functions to respond to events.", "value": true}
-			]},
-		{
-			"text": "Which of these are Rederable Nodes?",
-			"options": [
-				{"id": "Poster", "value": false},
-				{"id": "Rectangle", "value": false},
-				{"id": "SimpleLabel", "value": false},
-				{"id": "All of the above.", "value": true}
-			]},
-		{
-			"text": "Which of these are Label Nodes",
-			"options": [
-				{"id": "Label, InfoLabel, RotatingLabel", "value": false},
-				{"id": "InfoLabel, SimpleLabel, StyleLabel, ComplexLabel", "value": false},
-				{"id": "LabelBase, MultiStyleLabel, Label, InfoPane", "value": true},
-				{"id": "MultiStyleLabel, SimpleLabel, ComplexLabel", "value": false}
-			]}
-        ]
+	{
+		"text": "What are the four XML elements?",
+		"options": [
+			{"id": "<children>, <field>, <script>, <node>", "value": false},
+			{"id": "<component>, <child>, <parent>", "value": false},
+			{"id": "<component>, <interface>, <script>, <children>", "value": true},
+			{"id": "<interface>, <scene>, <?xml?>", "value": false}
+		]},
+	{
+		"text": "The following attributes are required to define <component>",
+		"options": [
+			{"id": "extends", "value": false},
+			{"id": "name", "value": true},
+			{"id": "version", "value": false},
+			{"id": "None of the above.", "value": false}
+		]},
+	{
+		"text": "What does the <script> attribute do?",
+		"options": [
+			{"id": "It adds meaning to the component.", "value": false},
+			{"id": "It allows the definition of functions to initialize the component.", "value": true},
+			{"id": "It defines the functions within the component.", "value": false},
+			{"id": "It allows the definition of functions to respond to events.", "value": true}
+		]},
+	{
+		"text": "Which of these are Rederable Nodes?",
+		"options": [
+			{"id": "Poster", "value": false},
+			{"id": "Rectangle", "value": false},
+			{"id": "SimpleLabel", "value": false},
+			{"id": "All of the above.", "value": true}
+		]},
+	{
+		"text": "Which of these are Label Nodes",
+		"options": [
+			{"id": "Label, InfoLabel, RotatingLabel", "value": false},
+			{"id": "InfoLabel, SimpleLabel, StyleLabel, ComplexLabel", "value": false},
+			{"id": "LabelBase, MultiStyleLabel, Label, InfoPane", "value": true},
+			{"id": "MultiStyleLabel, SimpleLabel, ComplexLabel", "value": false}
+		]}
+       ]
 
 }
