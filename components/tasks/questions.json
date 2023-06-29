@@ -28,7 +28,9 @@
 		"text": "Every SceneGraph component must define an init() function.",
 		"options": [
 			{"id": "True", "value": true},
-			{"id": "False", "value": false}
+			{"id": "False", "value": false},
+			{"id": "Only in some circumstances", "value": false},
+			{"id": "What's an init() function?", "value": false}
 		]},
     {
         "text": "How do you declare variables in BrightScript?",
@@ -37,7 +39,47 @@
             {"id": "It doesn't matter how you declare variables in BrightScript.", "value": false},
             {"id": "You don't need to declare variables in BrightScript.", "value": true},
             {"id": "Explicitly State variable type upon declaration to the RIGHT of variable.", "value": false}
-        ]}
+        ]},
+		{
+			"text": "",
+			"options": [
+				{"id": "", "value": false},
+				{"id": "", "value": false},
+				{"id": "", "value": true},
+				{"id": "", "value": false}
+			]},
+		{
+			"text": "",
+			"options": [
+				{"id": "", "value": false},
+				{"id": "", "value": false},
+				{"id": "", "value": false},
+				{"id": "None of the above.", "value": true}
+			]},
+		{
+			"text": "",
+			"options": [
+				{"id": "", "value": false},
+				{"id": "", "value": true},
+				{"id": "", "value": false},
+				{"id": "", "value": false}
+			]},
+		{
+			"text": "",
+			"options": [
+				{"id": "", "value": false},
+				{"id": "", "value": false},
+				{"id": "", "value": false},
+				{"id": "All of the above.", "value": true}
+			]},
+		{
+			"text": "",
+			"options": [
+				{"id": "", "value": false},
+				{"id": "", "value": true},
+				{"id": "", "value": true},
+				{"id": "", "value": false}
+			]}
         ]
 
 }
