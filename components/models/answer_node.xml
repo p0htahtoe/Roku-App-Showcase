@@ -2,5 +2,6 @@
 <component name="answer_node" extends="ContentNode">
 	<interface>
 		<field id="value" type="string" />
+		<field id="key" type="string" />
 	</interface>
 </component>

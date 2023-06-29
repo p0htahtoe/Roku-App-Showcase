@@ -40,9 +40,16 @@ end	function
 
 sub updateScreen()
 	label = m.top.findNode("questionText")
+	answer_list = m.top.findNode("answer_list")
+	options = answer_list.content.getChild(0).title
+	
+
 	label.text = m.questionArray.GetEntry(m.global.curQuestion)
 	?"curQuestion: ";m.global.curQuestion
 	?"updateScreen() questionArray: "; m.questionArray
+
+	?"options: ";options
+	
 end sub
 
 sub onAnswerSelected(obj)
@@ -125,7 +132,7 @@ sub answerCheck(answer_value)
 
 	m.global.curQuestion += 1
 	updateScreen()
-	
+
 end sub
 ' This function checks if the user input is correct or incorrect
 ' if the question is correct the visibility for the correct_screen will be true

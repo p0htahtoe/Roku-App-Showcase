@@ -35,10 +35,10 @@
       itemSpacings="[200, 100]"
     >
       <ContentNode id="answers" role="content">
-        <answer_node title = "A programming language used by Roku" value="correct"/>
-        <answer_node title = "A script for a play" value="incorrect"/>
-        <answer_node title = "Something to do with coding" value="incorrect"/>
-        <answer_node title = "A lightbulb brand" value="incorrect"/>
+        <answer_node title = "A programming language used by Roku" value="correct" key="o1"/>
+        <answer_node title = "A script for a play" value="incorrect" key="o2"/>
+        <answer_node title = "Something to do with coding" value="incorrect" key="o3"/>
+        <answer_node title = "A lightbulb brand" value="incorrect" key="o4"/>
       </ContentNode>
     </RadioButtonList>
   </children>
