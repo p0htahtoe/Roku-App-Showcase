@@ -33,13 +33,16 @@ function init()
 	m.curQuestion = 0
 	m.curScore = 0
 
-	'updateScreen()
+	m.global.addFields({curQuestion:m.curQuestion})
+
+	loadFeed("https://sthsroku.net/quizzers/questions.json")
 end	function
 
 sub updateScreen()
 	label = m.top.findNode("questionText")
-	'label.text = m.questionArray.GetEntry(1)
-	? m.questionArray
+	label.text = m.questionArray.GetEntry(m.global.curQuestion)
+	?"curQuestion: ";m.global.curQuestion
+	?"updateScreen() questionArray: "; m.questionArray
 end sub
 
 sub onAnswerSelected(obj)
@@ -52,7 +55,6 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
 	answerCheck(item.value)
-	loadFeed("https://sthsroku.net/quizzers/questions.json")
 end sub
 ' Gets the value of the answer selected and runs the answerCheck() function 
 
@@ -110,13 +112,6 @@ sub answerCheck(answer_value)
 		m.top.backgroundColor = "0x339933"
 		m.top.backgroundURI = "pkg:/images/correct_screen.png"
 
-		?"current_screen: ";m.global.current_screen
-		label = m.top.findNode("questionText")
-		?"current title: ";label.text
-		label.text = "Question 2"
-
-		m.curQuestion += 1
-		? m.curQuestion
 
 	else if answer_value = "incorrect"
 		m.answer_screen.visible = false
@@ -127,6 +122,10 @@ sub answerCheck(answer_value)
 		m.top.backgroundURI = "pkg:/images/incorrect_screen.png"
 		? "Wrong!"
 	end if
+
+	m.global.curQuestion += 1
+	updateScreen()
+	
 end sub
 ' This function checks if the user input is correct or incorrect
 ' if the question is correct the visibility for the correct_screen will be true
@@ -144,10 +143,12 @@ sub onButtonSelected(obj)
 	m.correct_screen.visible = false
 	m.answer_screen.visible = true
 	m.answer_screen.setFocus(true)
+	
 	? "BUTTON CLICKED BUTTON CLICKED !!"
 
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
+
 end sub
 ' This is the next button
 ' It changes the visibility of the answer_screen 
