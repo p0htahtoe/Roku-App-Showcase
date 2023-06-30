@@ -147,6 +147,8 @@ sub onCorrectButtonSelected(obj)
 		m.correct_screen.visible = false
 		m.result_screen.visible = true
 		m.result_screen.setFocus(true)
+		m.top.backgroundColor = "0x000000"
+		m.top.backgroundURI = "pkg:/images/result_screen.png"
 	end if
 
 end sub
@@ -169,6 +171,8 @@ sub onIncorrectButtonSelected(obj)
 		m.correct_screen.visible = false
 		m.result_screen.visible = true
 		m.result_screen.setFocus(true)
+		m.top.backgroundColor = "0x000000"
+		m.top.backgroundURI = "pkg:/images/result_screen.png"
 	end if
 end sub
 ' This is the next button on the incorrect screen
