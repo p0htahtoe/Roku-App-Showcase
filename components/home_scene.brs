@@ -145,6 +145,7 @@ sub onCorrectButtonSelected(obj)
 	if m.global.curQuestion = m.questionArray.count()
 		m.incorrect_screen.visible = false
 		m.correct_screen.visible = false
+		m.answer_screen.visible = false
 		m.result_screen.visible = true
 		m.result_screen.setFocus(true)
 		showResults()
@@ -170,6 +171,7 @@ sub onIncorrectButtonSelected(obj)
 	if m.global.curQuestion = m.questionArray.count()
 		m.incorrect_screen.visible = false
 		m.correct_screen.visible = false
+		m.answer_screen.visible = false
 		m.result_screen.visible = true
 		m.result_screen.setFocus(true)
 		showResults()
