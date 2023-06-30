@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<component name="result_screen" extends="Group"> 
+    <script type="text/brightscript" uri="pkg:/components/screens/result_screen.brs" /> 
+    <interface> 
+        <field id="retry_button" 
+            type="assocarray" 
+            alias="retry.buttonSelected" /> 
+    </interface>
+    <children>
+        <ButtonGroup
+            translation="[1450, 900]"
+            layoutDirection="horiz"
+            itemSpacings="[200, 0]"
+            id="retry"
+            textColor="0x000000"
+        />
+    </children>
+</component>
