@@ -2,7 +2,7 @@
 <component name="incorrect_screen" extends="Group">
   <script type="text/brightscript" uri="pkg:/components/screens/incorrect_screen.brs" />
   <interface>
-    <field id="retry_button"
+    <field id="incorrect_button"
         type="assocarray"
         alias="incorrect_result.buttonSelected" />
   </interface>

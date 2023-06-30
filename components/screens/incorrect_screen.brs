@@ -13,14 +13,3 @@ sub onVisibleChange()
 		m.incorrect_result.setFocus(true)
 	end if
 end sub
-
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    if key = "left"
-        m.incorrect_result.focusButton = 0 
-        return true
-    else if key ="right"
-        m.incorrect_result.focusButton = 1
-        return true
-    end if 
-        return false
-end function

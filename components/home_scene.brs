@@ -6,10 +6,12 @@ function init()
     m.answer_screen = m.top.findNode("answer_screen")	
 	m.correct_screen = m.top.findNode("correct_screen")
 	m.incorrect_screen = m.top.findNode("incorrect_screen")
+	m.result_screen = m.top.findNode("result_screen")
 
     m.answer_screen.observeField("answer_selected", "onAnswerSelected")
-	m.correct_screen.observeField("next_button", "onButtonSelected")
-	m.incorrect_screen.observeField("retry_button", "onRetryButtonSelected")
+	m.correct_screen.observeField("next_button", "onCorrectButtonSelected")
+	m.incorrect_screen.observeField("incorrect_button", "onIncorrectButtonSelected")
+	m.result_screen.ObserveField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
 	
@@ -22,6 +24,7 @@ function init()
 
 	m.curQuestion = 0
 	m.curIndex = 0
+	m.curScore = 0
 
 	m.global.addFields({curQuestion:m.curQuestion})
 
@@ -38,18 +41,18 @@ sub updateScreen()
 		
 		option.title = m.optArray.getEntry(m.curIndex)
 		option.value = m.ansArray.getEntry(m.curIndex)
-		?"options: "; option.title
-		?"value: "; option.value
 		m.curIndex += 1
 	end for
 
 	label.text = m.questionArray.GetEntry(m.global.curQuestion)
 	?"curQuestion: ";m.global.curQuestion
-	?"updateScreen() questionArray: "; m.questionArray
+	?"curIndex: "; m.curIndex
+	' ?"updateScreen() questionArray: "; m.questionArray
 
-	
+	' if m.global.curQuestion = 
+	' end if
 
-	
+	?"ans screen focus?"; m.answer_screen.hasFocus()
 end sub
 
 sub onAnswerSelected(obj)
@@ -105,7 +108,8 @@ sub answerCheck(answer_value)
 		m.top.backgroundColor = "0x339933"
 		m.top.backgroundURI = "pkg:/images/correct_screen.png"
 
-
+		m.curScore += 1
+		?"curScore: "; m.curScore
 	else if answer_value = "0"
 		m.answer_screen.visible = false
 		m.incorrect_screen.visible = true
@@ -116,8 +120,8 @@ sub answerCheck(answer_value)
 		? "Wrong!"
 	end if
 
-	
 	m.global.curQuestion += 1
+
 	updateScreen()
 
 end sub
@@ -125,7 +129,7 @@ end sub
 ' if the question is correct the visibility for the correct_screen will be true
 ' if the question is incorrect the incorrect_screen will become visible
 
-sub onButtonSelected(obj)
+sub onCorrectButtonSelected(obj)
 	? m.answer_screen.hasFocus()
 	? m.correct_screen.hasFocus()
 
@@ -138,22 +142,54 @@ sub onButtonSelected(obj)
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
 
+	if m.global.curQuestion = m.questionArray.count()
+		m.incorrect_screen.visible = false
+		m.correct_screen.visible = false
+		m.result_screen.visible = true
+		m.result_screen.setFocus(true)
+	end if
+
 end sub
 ' This is the next button
 ' It changes the visibility of the answer_screen 
 
-sub onRetryButtonSelected(obj)
-	? m.answer_screen.hasFocus()
-	? m.incorrect_screen.hasFocus()
-	? m.correct_screen.hasFocus()
+sub onIncorrectButtonSelected(obj)
+	' ? m.answer_screen.hasFocus()
+	' ? m.incorrect_screen.hasFocus()
+	' ? m.correct_screen.hasFocus()
 	m.incorrect_screen.visible = false
 	m.answer_screen.visible = true
-	? "RETRY BUTTON CLICKED RETRY BUTTON CLICKED !!"
+	? "INCORRECT BUTTON CLICKED INCORRECT BUTTON CLICKED !!"
 
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
+
+	if m.global.curQuestion = m.questionArray.count()
+		m.incorrect_screen.visible = false
+		m.correct_screen.visible = false
+		m.result_screen.visible = true
+		m.result_screen.setFocus(true)
+	end if
 end sub
 ' This is the next button on the incorrect screen
+
+sub onRetryButtonSelected(obj)
+	ansList = m.answer_screen.findNode("answer_list")
+	m.result_screen.visible = false
+	m.answer_screen.visible = true
+	ansList.setFocus(true)
+	
+	? "RETRY BUTTON CLICKED!!"
+
+	m.curIndex = 0
+	m.global.curQuestion = 0
+	m.curScore = 0
+	?"ans screen focus?"; m.answer_screen.hasFocus()
+
+	m.top.backgroundColor = "0x000000"
+	m.top.backgroundURI = "pkg:/images/question_screen.png"
+	updateScreen()	
+end sub
 
 
 function onKeyEvent(key, press) as Boolean
