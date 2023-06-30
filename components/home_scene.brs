@@ -201,7 +201,7 @@ sub showResults()
 	m.scoreLabel = m.top.findNode("scoreLabel")
 	m.commentLabel = m.top.findNode("commentLabel")
 
-	m.scoreLabel.text = m.curScore + "/" + m.global.curQuestion
+	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
 	if m.curScore < 3
 		m.commentLabel.text = "YOU'RE ADOPTED KID"
 	else if m.curScore < 6
