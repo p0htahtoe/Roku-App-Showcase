@@ -147,6 +147,7 @@ sub onCorrectButtonSelected(obj)
 		m.correct_screen.visible = false
 		m.result_screen.visible = true
 		m.result_screen.setFocus(true)
+		showResults()
 		m.top.backgroundColor = "0x000000"
 		m.top.backgroundURI = "pkg:/images/result_screen.png"
 	end if
@@ -171,6 +172,7 @@ sub onIncorrectButtonSelected(obj)
 		m.correct_screen.visible = false
 		m.result_screen.visible = true
 		m.result_screen.setFocus(true)
+		showResults()
 		m.top.backgroundColor = "0x000000"
 		m.top.backgroundURI = "pkg:/images/result_screen.png"
 	end if
@@ -193,6 +195,20 @@ sub onRetryButtonSelected(obj)
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
 	updateScreen()	
+end sub
+
+sub showResults()
+	m.scoreLabel = m.top.findNode("scoreLabel")
+	m.commentLabel = m.top.findNode("commentLabel")
+
+	m.scoreLabel.text = m.curScore + "/" + m.global.curQuestion
+	if m.curScore < 3
+		m.commentLabel.text = "YOU'RE ADOPTED KID"
+	else if m.curScore < 6
+		m.commentLabel.text = "NOT BAD BUDDY"
+	else if m.curScore < 10 
+		m.commentLabel.text = "STOP CHEATING!!"
+	end if
 end sub
 
 

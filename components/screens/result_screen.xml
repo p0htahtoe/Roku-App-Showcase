@@ -7,6 +7,16 @@
             alias="retry.buttonSelected" /> 
     </interface>
     <children>
+        <Label
+        translation="[1300, 400]"
+        id="scoreLabel"
+        text=""
+        />
+        <Label
+        translation="[500, 400]"
+        id="commentLabel"
+        text=""
+        />
         <ButtonGroup
             translation="[1450, 900]"
             layoutDirection="horiz"
