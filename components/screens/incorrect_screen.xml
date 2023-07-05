@@ -7,17 +7,7 @@
         alias="incorrect_result.buttonSelected" />
   </interface>
   <children>
-    <!-- <Label
-        translation="[0, 145]"
-        width="1920"
-        height="1080"
-        horizAlign="center"
-        vertAlign="top"
-        id="incorrect_env"
-        font="font:LargeBoldSystemFont"
-        text="YOU ARE INCORRECT!"
-        color="0x000000" /> -->
-    <Label
+     <Label
       translation="[900, 600]"
       id="feedbackLabel"
       text=""
@@ -29,6 +19,5 @@
         id="incorrect_result"
         textColor="0x000000" />
         <!-- 774 for itemSpacings-->
-    <!-- <Button translation="[100, 200]" id="result" text="NEXT"/> -->
   </children>
 </component>

@@ -8,14 +8,25 @@
     </interface>
     <children>
         <Label
+        horizAlign="center"
+        vertAlign="top"
         translation="[1300, 400]"
         id="scoreLabel"
+        font="font:LargeBoldSystemFont"
         text=""
+        color="0xFFFFFF"
         />
         <Label
-        translation="[500, 400]"
+        horizAlign="center"
+        vertAlign="top"
+        translation="[200, 400]"
         id="commentLabel"
+        font="font:LargeBoldSystemFont"
         text=""
+        color="0xFFFFFF"
+        width="750"
+        height="1000"
+        wrap="true"
         />
         <ButtonGroup
             translation="[1450, 900]"

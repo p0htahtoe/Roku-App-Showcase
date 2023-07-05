@@ -17,6 +17,11 @@ function init()
 	m.result_screen.ObserveField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
+
+	m.scoreLabel = m.top.findNode("scoreLabel")
+	m.commentLabel = m.top.findNode("commentLabel")
+	m.scoreLabel.font.size = "150"
+	m.commentLabel.font.size = "100"
 	
 	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
@@ -219,13 +224,13 @@ sub showResults()
 
 	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
 	if m.curScore < 3
-		m.commentLabel.text = "YOU'RE ADOPTED KID"
-	else if m.curScore < 6
-		m.commentLabel.text = "NOT BAD BUDDY"
-	else if m.curScore < 9 
-		m.commentLabel.text = "STOP CHEATING!!"
+		m.commentLabel.text = "MAYBE PRACTICE SOME MORE"
+	else if m.curScore < 7
+		m.commentLabel.text = "YOU'RE ALMOST THERE"
+	else if m.curScore < 10 
+		m.commentLabel.text = "GREAT JOB"
 	else if m.curScore = 10
-		m.commentLabel.text = "You're a roku developer"
+		m.commentLabel.text = "ARE YOU A ROKU DEVELOPER?"
 	end if
 end sub
 

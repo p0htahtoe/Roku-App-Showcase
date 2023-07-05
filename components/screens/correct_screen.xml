@@ -7,16 +7,6 @@
         alias="result.buttonSelected" />
   </interface>
   <children>
-    <!-- <Label
-        translation="[0, 145]"
-        width="1920"
-        height="1080"
-        horizAlign="center"
-        vertAlign="top"
-        id="correct_env"
-        font="font:LargeBoldSystemFont"
-        text="YOU ARE CORRECT!"
-        color="0x000000"/> -->
     <ButtonGroup
         translation="[1450, 900]"
         layoutDirection="horiz"
@@ -25,6 +15,5 @@
         textColor="0x000000"
         />
         <!-- 774 for itemSpacings-->
-    <!-- <Button translation="[100, 200]" id="result" text="NEXT"/> -->
   </children>
 </component>
