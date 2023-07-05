@@ -17,11 +17,11 @@
       width="1920" 
       height="1080" />
     <Label
-      translation="[175, 270]"
+      translation="[175, 140]"
       width="1000"
       height="400"
       horizAlign="center"
-      vertAlign="top"
+      vertAlign="center"
       id="questionText"
       font="font:LargeBoldSystemFont"
       wrap="true"

@@ -8,10 +8,11 @@
   </interface>
   <children>
      <Label
-      translation="[60, 620]"
+      translation="[60, 660]"
       id="feedbackLabel"
       text=""
       horizAlign="center"
+      font="font:LargeSystemFont"
       height="200"
       width="1800"
       wrap="true"
