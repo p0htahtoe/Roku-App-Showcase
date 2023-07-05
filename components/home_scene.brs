@@ -206,13 +206,13 @@ sub showResults()
 
 	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
 	if m.curScore < 3
-		m.commentLabel.text = "YOU'RE ADOPTED KID"
-	else if m.curScore < 6
-		m.commentLabel.text = "NOT BAD BUDDY"
+		m.commentLabel.text = "MAYBE PRACTICE SOME MORE"
+	else if m.curScore < 7
+		m.commentLabel.text = "YOU'RE ALMOST THERE"
 	else if m.curScore < 10 
-		m.commentLabel.text = "STOP CHEATING!!"
+		m.commentLabel.text = "GREAT JOB"
 	else if m.curScore = 10
-		m.commentLabel.text = "You're a roku developer"
+		m.commentLabel.text = "ARE YOU A ROKU DEVELOPER?"
 	end if
 end sub
 
