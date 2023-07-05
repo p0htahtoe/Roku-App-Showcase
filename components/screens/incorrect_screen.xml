@@ -8,9 +8,14 @@
   </interface>
   <children>
      <Label
-      translation="[900, 600]"
+      translation="[60, 620]"
       id="feedbackLabel"
       text=""
+      horizAlign="center"
+      height="200"
+      width="1800"
+      wrap="true"
+      color="0xFFFFFF"
     />
     <ButtonGroup
         translation="[1450, 900]"
