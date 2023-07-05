@@ -1,13 +1,16 @@
 function init()
+	'initializes background image
 	? "[home_scene] init"
 	m.top.backgroundColor = "0x000000FF"
     m.top.backgroundURI = "pkg:/images/question_screen.png"
 
+	'finds and initializes screens
     m.answer_screen = m.top.findNode("answer_screen")	
 	m.correct_screen = m.top.findNode("correct_screen")
 	m.incorrect_screen = m.top.findNode("incorrect_screen")
 	m.result_screen = m.top.findNode("result_screen")
 
+	'connects buttons to event callback functions
     m.answer_screen.observeField("answer_selected", "onAnswerSelected")
 	m.correct_screen.observeField("next_button", "onCorrectButtonSelected")
 	m.incorrect_screen.observeField("incorrect_button", "onIncorrectButtonSelected")
@@ -15,6 +18,7 @@ function init()
 
 	m.answer_screen.setFocus(true)
 	
+	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
     dim arrOpt[0]
     dim arrAns[0]
@@ -22,15 +26,19 @@ function init()
     m.optArray = arrOpt
     m.ansArray = arrAns
 
+	'initializes variables that keep count of the current question, current index for a for-loop, and the current score of the user
 	m.curQuestion = 0
 	m.curIndex = 0
 	m.curScore = 0
 
+	'add and convert current question count into a global variable
 	m.global.addFields({curQuestion:m.curQuestion})
 
+	'load json file hosted on public webserver
 	loadFeed("https://sthsroku.net/quizzers/questions.json")
 end	function
 
+'created general function to load questions, options, and their respective values onto the screen
 sub updateScreen()
 	label = m.top.findNode("questionText")
 	answer_list = m.top.findNode("answer_list")
@@ -47,14 +55,11 @@ sub updateScreen()
 	label.text = m.questionArray.GetEntry(m.global.curQuestion)
 	?"curQuestion: ";m.global.curQuestion
 	?"curIndex: "; m.curIndex
-	' ?"updateScreen() questionArray: "; m.questionArray
-
-	' if m.global.curQuestion = 
-	' end if
 
 	?"ans screen focus?"; m.answer_screen.hasFocus()
 end sub
 
+'event function that is called after button is clicked
 sub onAnswerSelected(obj)
 	list = m.answer_screen.findNode("answer_list")
 	item = list.content.getChild(obj.getData())
@@ -64,10 +69,11 @@ sub onAnswerSelected(obj)
 	? "onAnswerSelected selected: ";item
 	? "onAnswerSelected value: "; item.value
 	? "current_screen: "; m.global.current_screen
+	' Gets the value of the answer selected and runs the answerCheck() function 
 	answerCheck(item.value)
 end sub
-' Gets the value of the answer selected and runs the answerCheck() function 
 
+' Loads the feed
 sub loadFeed(url)
   m.feed_task = createObject("roSGNode", "loadTask")
   m.feed_task.ObserveField("response", "onFeedResponse")
@@ -75,8 +81,8 @@ sub loadFeed(url)
   m.feed_task.control = "RUN"
   ? "LOADFEED RAN!"
 end sub
-' Loads the feed
 
+'gets link and parses json file --> populates arrays initializes in init() 
 sub onFeedResponse(obj)
 	response = obj.getData()
 	data = parseJSON(response)
@@ -94,11 +100,12 @@ sub onFeedResponse(obj)
 		End for
 	End for
 
-
+	'updateScreen called here to populate the first screen
 	updateScreen()
 end sub
-' Tries to pull information from the json file
 
+'function that is called within onAnswerSelected()
+'checks if answer is correct and switches screens
 sub answerCheck(answer_value)
 	if answer_value = "1"
 		m.answer_screen.visible = false
@@ -123,12 +130,9 @@ sub answerCheck(answer_value)
 	m.global.curQuestion += 1
 
 	updateScreen()
-
 end sub
-' This function checks if the user input is correct or incorrect
-' if the question is correct the visibility for the correct_screen will be true
-' if the question is incorrect the incorrect_screen will become visible
 
+'event function that is called after next button within the correct screen is clicked
 sub onCorrectButtonSelected(obj)
 	? m.answer_screen.hasFocus()
 	? m.correct_screen.hasFocus()
@@ -154,13 +158,9 @@ sub onCorrectButtonSelected(obj)
 	end if
 
 end sub
-' This is the next button
-' It changes the visibility of the answer_screen 
 
+'event function that is called after next button within the incorrect screen is clicked
 sub onIncorrectButtonSelected(obj)
-	' ? m.answer_screen.hasFocus()
-	' ? m.incorrect_screen.hasFocus()
-	' ? m.correct_screen.hasFocus()
 	m.incorrect_screen.visible = false
 	m.answer_screen.visible = true
 	? "INCORRECT BUTTON CLICKED INCORRECT BUTTON CLICKED !!"
@@ -179,8 +179,8 @@ sub onIncorrectButtonSelected(obj)
 		m.top.backgroundURI = "pkg:/images/result_screen.png"
 	end if
 end sub
-' This is the next button on the incorrect screen
 
+'event function that is called after next button within the result screen is clicked
 sub onRetryButtonSelected(obj)
 	ansList = m.answer_screen.findNode("answer_list")
 	m.result_screen.visible = false
@@ -199,6 +199,7 @@ sub onRetryButtonSelected(obj)
 	updateScreen()	
 end sub
 
+'populates the result screen
 sub showResults()
 	m.scoreLabel = m.top.findNode("scoreLabel")
 	m.commentLabel = m.top.findNode("commentLabel")
@@ -213,7 +214,7 @@ sub showResults()
 	end if
 end sub
 
-
+'records remote inputs on console debugger
 function onKeyEvent(key, press) as Boolean
 	? "[home_scene] onKeyEvent", key, press
   return false
