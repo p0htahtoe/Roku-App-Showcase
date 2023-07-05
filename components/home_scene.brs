@@ -17,6 +17,11 @@ function init()
 	m.result_screen.ObserveField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
+
+	m.scoreLabel = m.top.findNode("scoreLabel")
+	m.commentLabel = m.top.findNode("commentLabel")
+	m.scoreLabel.font.size = "150"
+	m.commentLabel.font.size = "100"
 	
 	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
