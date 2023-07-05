@@ -209,8 +209,10 @@ sub showResults()
 		m.commentLabel.text = "YOU'RE ADOPTED KID"
 	else if m.curScore < 6
 		m.commentLabel.text = "NOT BAD BUDDY"
-	else if m.curScore < 10 
+	else if m.curScore < 9 
 		m.commentLabel.text = "STOP CHEATING!!"
+	else if m.curScore = 10
+		m.commentLabel.text = "You're a roku developer"
 	end if
 end sub
 

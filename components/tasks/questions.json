@@ -41,7 +41,7 @@
             {"id": "Explicitly State variable type upon declaration to the RIGHT of variable.", "value": false}
         ]},
 	{
-		"text": "What are the four XML elements?",
+		"text": "What are the XML elements?",
 		"options": [
 			{"id": "<children>, <field>, <script>, <node>", "value": false},
 			{"id": "<component>, <child>, <parent>", "value": false},
@@ -65,7 +65,7 @@
 			{"id": "It allows the definition of functions to respond to events.", "value": true}
 		]},
 	{
-		"text": "Which of these are Rederable Nodes?",
+		"text": "Which of these are Renderable Nodes?",
 		"options": [
 			{"id": "Poster", "value": false},
 			{"id": "Rectangle", "value": false},
