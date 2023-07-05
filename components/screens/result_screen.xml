@@ -15,8 +15,6 @@
         <Label
         translation="[500, 400]"
         id="commentLabel"
-        font="font:LargeBoldSystemFont"
-        wrap="true"
         text=""
         />
         <ButtonGroup

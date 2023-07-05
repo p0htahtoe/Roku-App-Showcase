@@ -22,9 +22,11 @@ function init()
 	dim arrQue[0]
     dim arrOpt[0]
     dim arrAns[0]
-    m.questionArray = arrQue
+	dim arrCor[0]
+	m.questionArray = arrQue
     m.optArray = arrOpt
     m.ansArray = arrAns
+	m.correctArray = arrCor
 
 	'initializes variables that keep count of the current question, current index for a for-loop, and the current score of the user
 	m.curQuestion = 0
@@ -97,6 +99,11 @@ sub onFeedResponse(obj)
 		for Each option in question.options
 			m.optArray.push(option.id)
 			m.ansArray.push(option.value)
+
+			if option.value = true
+				m.correctArray.push(option.id)
+			end if
+
 		End for
 	End for
 
@@ -118,6 +125,7 @@ sub answerCheck(answer_value)
 		m.curScore += 1
 		?"curScore: "; m.curScore
 	else if answer_value = "0"
+		getCorrectAnswer()
 		m.answer_screen.visible = false
 		m.incorrect_screen.visible = true
 		m.incorrect_screen.setFocus(true)
@@ -131,6 +139,11 @@ sub answerCheck(answer_value)
 
 	updateScreen()
 end sub
+
+sub getCorrectAnswer()
+	m.feedbackLabel = m.incorrect_screen.findNode("feedbackLabel")
+	m.feedbackLabel.text = m.correctArray.GetEntry(m.global.curQuestion)
+end sub	
 
 'event function that is called after next button within the correct screen is clicked
 sub onCorrectButtonSelected(obj)
