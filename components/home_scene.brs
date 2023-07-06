@@ -205,12 +205,16 @@ sub showResults()
 	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
 	if m.curScore < 3
 		m.commentLabel.text = "MAYBE PRACTICE SOME MORE"
+		m.scoreLabel.color = "0xff0000"
 	else if m.curScore < 7
 		m.commentLabel.text = "YOU'RE ALMOST THERE"
+		m.scoreLabel.color = "0xff9c00"
 	else if m.curScore < 10 
 		m.commentLabel.text = "GREAT JOB"
+		m.scoreLabel.color = "0xfff000"
 	else if m.curScore = 10
 		m.commentLabel.text = "ARE YOU A ROKU DEVELOPER?"
+		m.scoreLabel.color = "0x00ff00"
 	end if
 end sub
 
