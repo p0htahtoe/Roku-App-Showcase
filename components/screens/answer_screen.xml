@@ -10,6 +10,7 @@
       />
 </interface>
   <children>
+    <ProgressBar id="progressBar" width="1000" height="10" translation="[500, 500]" />
     <Poster 
       id="question_background" 
       uri="pkg:/images/question_screen.jpg" 
