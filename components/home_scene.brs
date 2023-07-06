@@ -138,7 +138,7 @@ end sub
 'called after screen transitions to incorrect screen
 sub getCorrectAnswer()
 	m.feedbackLabel = m.incorrect_screen.findNode("feedbackLabel")
-	m.feedbackLabel.text = m.correctArray.GetEntry(m.global.curQuestion)
+	m.feedbackLabel.text = "Correct answer: " + m.correctArray.GetEntry(m.global.curQuestion)
 end sub	
 
 'checks if user has reached the last question and then transitions to result screen
