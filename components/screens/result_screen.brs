@@ -3,6 +3,12 @@ sub init()
     m.retry = m.top.findNode("retry")
     m.top.observeField("visible", "onVisibleChange") 
     m.retry.buttons = ["RETRY"] 
+
+    'adjusts text size
+	m.scoreLabel = m.top.findNode("scoreLabel")
+	m.commentLabel = m.top.findNode("commentLabel")
+	m.scoreLabel.font.size = "150"
+	m.commentLabel.font.size = "100"
 end sub 
     
 sub onVisibleChange() 

@@ -17,11 +17,6 @@ function init()
 	m.result_screen.ObserveField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
-
-	m.scoreLabel = m.top.findNode("scoreLabel")
-	m.commentLabel = m.top.findNode("commentLabel")
-	m.scoreLabel.font.size = "150"
-	m.commentLabel.font.size = "100"
 	
 	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
@@ -56,26 +51,20 @@ sub updateScreen()
 		
 		option.title = m.optArray.getEntry(m.curIndex)
 		option.value = m.ansArray.getEntry(m.curIndex)
+
 		m.curIndex += 1
 	end for
 
 	label.text = m.questionArray.GetEntry(m.global.curQuestion)
 	?"curQuestion: ";m.global.curQuestion
 	?"curIndex: "; m.curIndex
-
-	?"ans screen focus?"; m.answer_screen.hasFocus()
 end sub
 
 'event function that is called after button is clicked
 sub onAnswerSelected(obj)
 	list = m.answer_screen.findNode("answer_list")
 	item = list.content.getChild(obj.getData())
-	? "onAnswerSelected field: ";obj.getField()
-	? "onAnswerSelected data: ";obj.getData()
-	? "onAnswerSelected checkedItem: ";list.checkedItem
-	? "onAnswerSelected selected: ";item
-	? "onAnswerSelected value: "; item.value
-	? "current_screen: "; m.global.current_screen
+
 	' Gets the value of the answer selected and runs the answerCheck() function 
 	answerCheck(item.value)
 end sub
@@ -86,7 +75,6 @@ sub loadFeed(url)
   m.feed_task.ObserveField("response", "onFeedResponse")
   m.feed_task.url = url
   m.feed_task.control = "RUN"
-  ? "LOADFEED RAN!"
 end sub
 
 'gets link and parses json file --> populates arrays initializes in init() 
@@ -99,6 +87,7 @@ sub onFeedResponse(obj)
 		? "FEED RESPONSE IS EMPTY!"
 	end if
 
+	'for loop for 
 	for Each question in data.questions
 		m.questionArray.push(question.text)
 		for Each option in question.options
@@ -119,7 +108,7 @@ end sub
 'function that is called within onAnswerSelected()
 'checks if answer is correct and switches screens
 sub answerCheck(answer_value)
-	if answer_value = "1"
+	if answer_value = "1" 'if user selected option is correct
 		m.answer_screen.visible = false
 		m.correct_screen.visible = true
 		m.correct_screen.setFocus(true)
@@ -129,15 +118,15 @@ sub answerCheck(answer_value)
 
 		m.curScore += 1
 		?"curScore: "; m.curScore
-	else if answer_value = "0"
-		getCorrectAnswer()
+
+	else if answer_value = "0" 'if user selected option is incorrect
+		getCorrectAnswer() 'set label to the correct answer
 		m.answer_screen.visible = false
 		m.incorrect_screen.visible = true
 		m.incorrect_screen.setFocus(true)
 
 		m.top.backgroundColor = "0x800000"
 		m.top.backgroundURI = "pkg:/images/incorrect_screen.png"
-		? "Wrong!"
 	end if
 
 	m.global.curQuestion += 1
@@ -145,10 +134,26 @@ sub answerCheck(answer_value)
 	updateScreen()
 end sub
 
+'changes feedback to the correct answer depending on the current question
+'called after screen transitions to incorrect screen
 sub getCorrectAnswer()
 	m.feedbackLabel = m.incorrect_screen.findNode("feedbackLabel")
 	m.feedbackLabel.text = m.correctArray.GetEntry(m.global.curQuestion)
 end sub	
+
+'checks if user has reached the last question and then transitions to result screen
+sub endQuiz()
+	if m.global.curQuestion = m.questionArray.count()
+		m.incorrect_screen.visible = false
+		m.correct_screen.visible = false
+		m.answer_screen.visible = false
+		m.result_screen.visible = true
+		m.result_screen.setFocus(true)
+		showResults()
+		m.top.backgroundColor = "0x000000"
+		m.top.backgroundURI = "pkg:/images/result_screen.png"
+	end if
+end sub
 
 'event function that is called after next button within the correct screen is clicked
 sub onCorrectButtonSelected(obj)
@@ -158,44 +163,22 @@ sub onCorrectButtonSelected(obj)
 	m.correct_screen.visible = false
 	m.answer_screen.visible = true
 	m.answer_screen.setFocus(true)
-	
-	? "BUTTON CLICKED BUTTON CLICKED !!"
 
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
 
-	if m.global.curQuestion = m.questionArray.count()
-		m.incorrect_screen.visible = false
-		m.correct_screen.visible = false
-		m.answer_screen.visible = false
-		m.result_screen.visible = true
-		m.result_screen.setFocus(true)
-		showResults()
-		m.top.backgroundColor = "0x000000"
-		m.top.backgroundURI = "pkg:/images/result_screen.png"
-	end if
-
+	endQuiz()
 end sub
 
 'event function that is called after next button within the incorrect screen is clicked
 sub onIncorrectButtonSelected(obj)
 	m.incorrect_screen.visible = false
 	m.answer_screen.visible = true
-	? "INCORRECT BUTTON CLICKED INCORRECT BUTTON CLICKED !!"
 
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
 
-	if m.global.curQuestion = m.questionArray.count()
-		m.incorrect_screen.visible = false
-		m.correct_screen.visible = false
-		m.answer_screen.visible = false
-		m.result_screen.visible = true
-		m.result_screen.setFocus(true)
-		showResults()
-		m.top.backgroundColor = "0x000000"
-		m.top.backgroundURI = "pkg:/images/result_screen.png"
-	end if
+	endQuiz()
 end sub
 
 'event function that is called after next button within the result screen is clicked
@@ -204,13 +187,10 @@ sub onRetryButtonSelected(obj)
 	m.result_screen.visible = false
 	m.answer_screen.visible = true
 	ansList.setFocus(true)
-	
-	? "RETRY BUTTON CLICKED!!"
 
 	m.curIndex = 0
 	m.global.curQuestion = 0
 	m.curScore = 0
-	?"ans screen focus?"; m.answer_screen.hasFocus()
 
 	m.top.backgroundColor = "0x000000"
 	m.top.backgroundURI = "pkg:/images/question_screen.png"
