@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- 'credit goes to gokulpulikkal -->
 <component name="ProgressBar" extends="Group">
 
   <interface>
@@ -9,7 +10,7 @@
     <field id="scrubberHeight" type="float" value="30" alias="scrubber.height" onChange="reloadUI"/>
     <field id="scrubberWidth" type="float" value="30" alias="scrubber.width"/>
     <!-- Progress value. Should be in between 0 and 1 -->
-    <field id="progress" type="float" value="0" onChange="onProgressChange"/>
+    <field id="progress" type="float" value="-0.1" onChange="onProgressChange"/>
 
     <!-- Cosmetics -->
     <field id="progressBarBackgroundColor" value="#FFFF00" alias="backgroundRect.color" />

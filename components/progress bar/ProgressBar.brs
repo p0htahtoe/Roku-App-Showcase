@@ -1,3 +1,5 @@
+'credit goes to gokulpulikkal
+
 function init() as void
 
   m.backgroundRect = m.top.findNode("backgroundRect")

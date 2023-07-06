@@ -17,6 +17,9 @@ function init()
 	m.result_screen.ObserveField("retry_button", "onRetryButtonSelected")
 
 	m.answer_screen.setFocus(true)
+
+	'progress bar
+	m.progressBar = m.top.findNode("progressBar")
 	
 	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
@@ -42,6 +45,8 @@ end	function
 
 'created general function to load questions, options, and their respective values onto the screen
 sub updateScreen()
+	m.progressBar.progress += 0.1
+
 	label = m.top.findNode("questionText")
 	answer_list = m.top.findNode("answer_list")
 	answer_list.checkedItem =-1
@@ -188,6 +193,7 @@ sub onRetryButtonSelected(obj)
 	m.answer_screen.visible = true
 	ansList.setFocus(true)
 
+	m.progressBar.progress = -0.1
 	m.curIndex = 0
 	m.global.curQuestion = 0
 	m.curScore = 0
