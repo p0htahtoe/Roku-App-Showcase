@@ -1,15 +1,15 @@
 {
 	"questions":[
 	{
-		"text": "What is BrightScript?",
+		"text": "How do you enable the Developer Mode in Roku?",
 		"options": [
-			{"id": "A programming language used by Roku", "value": true},
-			{"id": "A script for a play", "value": false},
-			{"id": "Something to do with coding", "value": false},
-			{"id": "A lightbulb brand", "value": false}
+			{"id": "home, home, home, up, up, right, left, right, left, right", "value": true},
+			{"id": "home, home, up, home, up, left, right, left , right, home", "value": false},
+			{"id": "home, back, up, OK, left, left, left, right, right, OK", "value": false},
+			{"id": "back, up, right, down, left, home, home, up, up, OK", "value": false}
 		]},
 	{
-		"text": "ex = 1.2$ What will type(ex) return?",
+		"text": "If ex = 1.2$, what will type(ex) return?",
 		"options": [
 			{"id": "String", "value": true},
 			{"id": "Integer", "value": false},
@@ -27,17 +27,17 @@
 	{
 		"text": "Every SceneGraph component must define an init() function.",
 		"options": [
-			{"id": "True", "value": false},
-			{"id": "False", "value": false},
-			{"id": "Only in some circumstances", "value": true},
-			{"id": "What's an init() function?", "value": false}
+			{"id": "Always", "value": false},
+			{"id": "Never", "value": false},
+			{"id": "It should be sub init()", "value": false},
+			{"id": "Only in some circumstances", "value": true}
 		]},
     {
         "text": "How do you declare variables in BrightScript?",
         "options": [
-            {"id": "Explicitly State variable type upon declaration to the LEFT of variable.", "value": false},
-            {"id": "It doesn't matter how you declare variables in BrightScript.", "value": false},
             {"id": "You don't need to declare variables in BrightScript.", "value": true},
+            {"id": "It doesn't matter how you declare variables in BrightScript.", "value": false},
+            {"id": "Explicitly State variable type upon declaration to the LEFT of variable.", "value": false},
             {"id": "Explicitly State variable type upon declaration to the RIGHT of variable.", "value": false}
         ]},
 	{
@@ -49,7 +49,7 @@
 			{"id": "<interface>, <scene>, <?xml?>", "value": false}
 		]},
 	{
-		"text": "The following attributes are required to define <component>",
+		"text": "The following attribute is required to define <component> . . .",
 		"options": [
 			{"id": "extends", "value": false},
 			{"id": "name", "value": true},
@@ -57,7 +57,7 @@
 			{"id": "None of the above.", "value": false}
 		]},
 	{
-		"text": "What does the <script> attribute do?",
+		"text": "What does the <script> attribute do? (Choose any that apply)",
 		"options": [
 			{"id": "It adds meaning to the component.", "value": false},
 			{"id": "It allows the definition of functions to initialize the component.", "value": true},
@@ -73,7 +73,7 @@
 			{"id": "All of the above.", "value": true}
 		]},
 	{
-		"text": "Which of these are Label Nodes",
+		"text": "Which of these are Label Nodes?",
 		"options": [
 			{"id": "Label, InfoLabel, RotatingLabel", "value": false},
 			{"id": "InfoLabel, SimpleLabel, StyleLabel, ComplexLabel", "value": false},
