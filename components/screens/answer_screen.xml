@@ -31,6 +31,7 @@
       id="answer_list"
       translation="[200, 550]"
       itemSize="[1500,100]"
+      vertFocusAnimationStyle="floatingFocus"
     >
       <ContentNode id="answers" role="content">
         <answer_node title = "A programming language used by Roku" value="correct"/>

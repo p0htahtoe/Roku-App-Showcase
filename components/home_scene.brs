@@ -221,5 +221,13 @@ end sub
 'records remote inputs on console debugger
 function onKeyEvent(key, press) as Boolean
 	? "[home_scene] onKeyEvent", key, press
+	m.answer_list = m.top.findNode("answer_list")
+
+	if key = "down"
+		m.answer_list.jumpToItem = 0
+	else if key = "up"
+		m.answer_list.jumpToItem = 3
+	end if
+
   return false
 end function
