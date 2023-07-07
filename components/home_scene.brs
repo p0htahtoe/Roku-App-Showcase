@@ -95,15 +95,16 @@ sub onFeedResponse(obj)
 	'for loop for 
 	for Each question in data.questions
 		m.questionArray.push(question.text)
+		m.str = ""
 		for Each option in question.options
 			m.optArray.push(option.id)
 			m.ansArray.push(option.value)
 
 			if option.value = true
-				str += option.id + " "
+				m.str += option.id + " "
 			end if
 		End for
-		m.correctArray.push(str)
+		m.correctArray.push(m.str)
 	End for
 
 	'updateScreen called here to populate the first screen
