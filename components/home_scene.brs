@@ -20,7 +20,7 @@ function init()
 
 	'progress bar
 	m.progressBar = m.top.findNode("progressBar")
-	
+
 	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
     dim arrOpt[0]
