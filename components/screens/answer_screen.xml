@@ -10,7 +10,7 @@
       />
 </interface>
   <children>
-    <ProgressBar id="progressBar" width="1000" height="10" translation="[500, 500]" />
+    <ProgressBar id="progressBar" width="1500" height="10" translation="[210, 500]" />
     <Poster 
       id="question_background" 
       uri="pkg:/images/question_screen.jpg" 
@@ -30,7 +30,7 @@
       color="0xFFFFFF" />
     <RadioButtonList
       id="answer_list"
-      translation="[200, 550]"
+      translation="[210, 550]"
       itemSize="[1500,100]"
       vertFocusAnimationStyle="floatingFocus"
     >

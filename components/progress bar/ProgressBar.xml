@@ -13,8 +13,8 @@
     <field id="progress" type="float" value="-0.1" onChange="onProgressChange"/>
 
     <!-- Cosmetics -->
-    <field id="progressBarBackgroundColor" value="#FFFF00" alias="backgroundRect.color" />
-    <field id="progressBarColor" value="#FF0000" alias="progressRect.color" />
+    <field id="progressBarBackgroundColor" value="#5b5b5b" alias="backgroundRect.color" />
+    <field id="progressBarColor" value="#D3D3D3" alias="progressRect.color" />
     <field id="scrubberColor" value="#FFFFFF" alias="scrubber.blendColor" />
 
   </interface>
@@ -23,6 +23,6 @@
 	<children>
       <Rectangle id="backgroundRect" width="1000" height="15"/>
       <Rectangle id="progressRect" color="#0000" width="0" height="15"/>
-      <Poster id="scrubber" uri="pkg:/images/progress-bar-scrubber-fhd.png" width="30" height="30"/>
+      <Poster id="scrubber" uri="pkg:/images/scrubber.png" width="30" height="30"/>
     </children>
 </component>

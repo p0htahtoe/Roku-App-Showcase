@@ -3,10 +3,10 @@
 	{
 		"text": "How do you enable the Developer Mode in Roku?",
 		"options": [
-			{"id": "home, home, home, up, up, right, left, right, left, right", "value": true},
-			{"id": "home, home, up, home, up, left, right, left , right, home", "value": false},
-			{"id": "home, back, up, OK, left, left, left, right, right, OK", "value": false},
-			{"id": "back, up, right, down, left, home, home, up, up, OK", "value": false}
+			{"id": "home,  home,  home,  up,  up,  right,  left,  right,  left,  right", "value": true},
+			{"id": "home,  home,  up,  home,  up,  left, right,  left,  right,  home", "value": false},
+			{"id": "home,  back,  up,  OK,  left,  left,  left,  right,  right,  OK", "value": false},
+			{"id": "back,  up,  right,  down,  left,  home,  home,  up,  up,  OK", "value": false}
 		]},
 	{
 		"text": "If ex = 1.2$, what will type(ex) return?",
