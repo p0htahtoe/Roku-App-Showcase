@@ -26,7 +26,7 @@
       id="questionText"
       font="font:LargeBoldSystemFont"
       wrap="true"
-      text="What is BrightScript?"
+      text="How do you enable the Developer Mode in Roku?"
       color="0xFFFFFF" />
     <RadioButtonList
       id="answer_list"
@@ -35,10 +35,10 @@
       vertFocusAnimationStyle="floatingFocus"
     >
       <ContentNode id="answers" role="content">
-        <answer_node title = "A programming language used by Roku" value="correct"/>
-        <answer_node title = "A script for a play" value="incorrect"/>
-        <answer_node title = "Something to do with coding" value="incorrect"/>
-        <answer_node title = "A lightbulb brand" value="incorrect"/>
+        <answer_node title = "home,  home,  home,  up,  up,  right,  left,  right,  left,  right" value="correct"/>
+        <answer_node title = "home,  home,  up,  home,  up,  left, right,  left,  right,  home" value="incorrect"/>
+        <answer_node title = "home,  back,  up,  OK,  left,  left,  left,  right,  right,  OK" value="incorrect"/>
+        <answer_node title = "back,  up,  right,  down,  left,  home,  home,  up,  up,  OK" value="incorrect"/>
       </ContentNode>
     </RadioButtonList>
   </children>
