@@ -95,15 +95,16 @@ sub onFeedResponse(obj)
 	'for loop for 
 	for Each question in data.questions
 		m.questionArray.push(question.text)
+		m.str = ""
 		for Each option in question.options
 			m.optArray.push(option.id)
 			m.ansArray.push(option.value)
 
 			if option.value = true
-				m.correctArray.push(option.id)
+				m.str += option.id + " "
 			end if
-
 		End for
+		m.correctArray.push(m.str)
 	End for
 
 	'updateScreen called here to populate the first screen
@@ -150,6 +151,8 @@ sub getCorrectAnswer()
 	else if m.global.curQuestion > 9
 		m.feedbackLabel.text = "Correct answer: " + m.correctArray.GetEntry(m.global.curQuestion + 1)
 	end if
+
+
 end sub	
 
 'checks if user has reached the last question and then transitions to result screen
