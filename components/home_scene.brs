@@ -18,7 +18,7 @@ function init()
 
 	m.answer_screen.setFocus(true)
 
-	'progress bar
+	'progress bar reference
 	m.progressBar = m.top.findNode("progressBar")
 
 	'initializes empty arrays that store questions, answers, options
@@ -92,7 +92,7 @@ sub onFeedResponse(obj)
 		? "FEED RESPONSE IS EMPTY!"
 	end if
 
-	'for loop for 
+	'for loop that populates arrays for questions, answers, values, and correct options
 	for Each question in data.questions
 		m.questionArray.push(question.text)
 		m.str = ""
@@ -209,6 +209,7 @@ sub showResults()
 	m.scoreLabel = m.top.findNode("scoreLabel")
 	m.commentLabel = m.top.findNode("commentLabel")
 
+	'result screen displays dynamic comments depending on  user score
 	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
 	if m.curScore < 3
 		m.commentLabel.text = "MAYBE PRACTICE SOME MORE"
@@ -228,8 +229,11 @@ end sub
 'records remote inputs on console debugger
 function onKeyEvent(key, press) as Boolean
 	? "[home_scene] onKeyEvent", key, press
-	m.answer_list = m.top.findNode("answer_list")
 
+	m.answer_list = m.top.findNode("answer_list")
+	
+	'if user clicks down on the last option, wrap to first option
+	'if user clicks up on the last option, wrap to last option
 	if key = "down"
 		m.answer_list.jumpToItem = 0
 	else if key = "up"
