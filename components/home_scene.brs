@@ -61,8 +61,6 @@ sub updateScreen()
 	end for
 
 	label.text = m.questionArray.GetEntry(m.global.curQuestion)
-	?"curQuestion: ";m.global.curQuestion
-	?"curIndex: "; m.curIndex
 end sub
 
 'event function that is called after button is clicked
@@ -95,16 +93,16 @@ sub onFeedResponse(obj)
 	'for loop that populates arrays for questions, answers, values, and correct options
 	for Each question in data.questions
 		m.questionArray.push(question.text)
-		m.str = ""
+		m.correctOpt = ""
 		for Each option in question.options
 			m.optArray.push(option.id)
 			m.ansArray.push(option.value)
 
 			if option.value = true
-				m.str += option.id + " "
+				m.correctOpt += option.id + " "
 			end if
 		End for
-		m.correctArray.push(m.str)
+		m.correctArray.push(m.correctOpt)
 	End for
 
 	'updateScreen called here to populate the first screen
@@ -123,7 +121,6 @@ sub answerCheck(answer_value)
 		m.top.backgroundURI = "pkg:/images/correct_screen.png"
 
 		m.curScore += 1
-		?"curScore: "; m.curScore
 
 	else if answer_value = "0" 'if user selected option is incorrect
 		getCorrectAnswer() 'set label to the correct answer
