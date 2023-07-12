@@ -24,7 +24,7 @@
         vertAlign="top"
         translation="[460, 570]"
         id="commentLabel"
-        font="font:Arial"
+        font="font:LargeBoldSystemFont"
         text=""
         color="0xFFFFFF"
         width="1000"

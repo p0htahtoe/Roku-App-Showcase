@@ -21,6 +21,11 @@ function init()
 	'progress bar reference
 	m.progressBar = m.top.findNode("progressBar")
 
+	'result bar reference
+	m.ResultBar = m.top.findNode("ResultBar")
+
+	m.ResultBar.progressBarColor = m.top.findNode("ResultBar.progressBarColor")
+
 	'initializes empty arrays that store questions, answers, options
 	dim arrQue[0]
     dim arrOpt[0]
@@ -155,6 +160,8 @@ sub endQuiz()
 		showResults()
 		m.top.backgroundColor = "0x000000"
 		m.top.backgroundURI = "pkg:/images/result_screen.png"
+		m.ResultBar.progress = m.curScore/10
+
 	end if
 end sub
 
@@ -209,17 +216,21 @@ sub showResults()
 	'result screen displays dynamic comments depending on  user score
 	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
 	if m.curScore < 3
-		m.commentLabel.text = "MAYBE PRACTICE SOME MORE"
+		m.commentLabel.text = "Maybe practice more!"
 		m.scoreLabel.color = "0xff0000"
+		m.ResultBar.progressBarColor =  "0xff0000"
 	else if m.curScore < 7
-		m.commentLabel.text = "YOU'RE ALMOST THERE"
+		m.commentLabel.text = "Almost there!!"
 		m.scoreLabel.color = "0xff9c00"
+		m.ResultBar.progressBarColor = "0xff9c00"
 	else if m.curScore < 10 
-		m.commentLabel.text = "GREAT JOB"
-		m.scoreLabel.color = "0xfff000"
+		m.commentLabel.text = "GREAT JOB! :)"
+		m.scoreLabel.color = "0x7cfc00"
+		m.ResultBar.progressBarColor = "0x7cfc00"
 	else if m.curScore = 10
-		m.commentLabel.text = "ARE YOU A ROKU DEVELOPER?"
+		m.commentLabel.text = "ARE YOU A ROKU DEVELOPER??"
 		m.scoreLabel.color = "0x00ff00"
+		m.ResultBar.progressBarColor = "0x00ff00"
 	end if
 end sub
 
