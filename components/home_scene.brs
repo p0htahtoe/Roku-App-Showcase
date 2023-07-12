@@ -166,7 +166,8 @@ sub endQuiz()
 		m.ResultBar.progress = m.curScore/10
 		
 		'set scrubber for ResultBar
-		m.ResultBar.scrubberURI = "pkg:/images/scrubber_1.png"
+		m.ResultBar.scrubberURI = "pkg:/images/scrubber_2.png"
+		
 	end if
 end sub
 
@@ -217,6 +218,9 @@ end sub
 sub showResults()
 	m.scoreLabel = m.top.findNode("scoreLabel")
 	m.commentLabel = m.top.findNode("commentLabel")
+
+	m.ResultBar.scrubberHeight = "70"
+	m.ResultBar.scrubberWidth = "70"
 
 	'result screen displays dynamic comments depending on  user score
 	m.scoreLabel.text = m.curScore.toStr() + "/" + m.global.curQuestion.toStr()
