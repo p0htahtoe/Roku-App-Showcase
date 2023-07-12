@@ -164,7 +164,9 @@ sub endQuiz()
 		m.top.backgroundColor = "0x000000"
 		m.top.backgroundURI = "pkg:/images/result_screen.png"
 		m.ResultBar.progress = m.curScore/10
-
+		
+		'set scrubber for ResultBar
+		m.ResultBar.scrubberURI = "pkg:/images/scrubber_1.png"
 	end if
 end sub
 

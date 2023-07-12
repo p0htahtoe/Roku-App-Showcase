@@ -9,6 +9,7 @@
     <field id="height" type="float" value="10" alias="backgroundRect.height, progressRect.height"  onChange="reloadUI"/>
     <field id="scrubberHeight" type="float" value="30" alias="scrubber.height" onChange="reloadUI"/>
     <field id="scrubberWidth" type="float" value="30" alias="scrubber.width"/>
+    <field id="scrubberURI" alias="scrubber.uri"/>
     <!-- Progress value. Should be in between 0 and 1 -->
     <field id="progress" type="float" value="-0.1" onChange="onProgressChange"/>
 
@@ -16,6 +17,7 @@
     <field id="progressBarBackgroundColor" value="#5b5b5b" alias="backgroundRect.color" />
     <field id="progressBarColor" value="#D3D3D3" alias="progressRect.color" />
     <field id="scrubberColor" value="#FFFFFF" alias="scrubber.blendColor" />
+    
 
   </interface>
 
