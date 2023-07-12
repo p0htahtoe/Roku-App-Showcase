@@ -7,25 +7,28 @@
             alias="retry.buttonSelected" /> 
     </interface>
     <children>
+        <ProgressBar id="ResultBar" width="1500" height="50" translation="[210, 250]" />
         <Label
         horizAlign="center"
         vertAlign="top"
-        translation="[1300, 400]"
+        translation="[460, 400]"
         id="scoreLabel"
         font="font:LargeBoldSystemFont"
         text=""
         color="0xFFFFFF"
+        width="1000"
+        height="850"
         />
         <Label
         horizAlign="center"
         vertAlign="top"
-        translation="[200, 400]"
+        translation="[460, 570]"
         id="commentLabel"
-        font="font:LargeBoldSystemFont"
+        font="font:Arial"
         text=""
         color="0xFFFFFF"
-        width="750"
-        height="1000"
+        width="1000"
+        height="850"
         wrap="true"
         />
         <ButtonGroup
