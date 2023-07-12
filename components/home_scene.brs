@@ -65,7 +65,10 @@ sub updateScreen()
 		m.curIndex += 1
 	end for
 
-	label.text = m.questionArray.GetEntry(m.global.curQuestion)
+	if m.global.curQuestion = 10
+		end
+	end if
+	label.text = (m.global.curQuestion + 1).toStr() + ". " + m.questionArray.GetEntry(m.global.curQuestion)
 end sub
 
 'event function that is called after button is clicked
@@ -104,7 +107,7 @@ sub onFeedResponse(obj)
 			m.ansArray.push(option.value)
 
 			if option.value = true
-				m.correctOpt += option.id + " "
+				m.correctOpt += option.id + chr(10)
 			end if
 		End for
 		m.correctArray.push(m.correctOpt)

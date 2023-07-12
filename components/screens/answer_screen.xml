@@ -26,7 +26,7 @@
       id="questionText"
       font="font:LargeBoldSystemFont"
       wrap="true"
-      text="How do you enable the Developer Mode in Roku?"
+      text="1. How do you enable the Developer Mode in Roku?"
       color="0xFFFFFF" />
     <RadioButtonList
       id="answer_list"
