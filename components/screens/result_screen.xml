@@ -22,7 +22,7 @@
         <Label
         horizAlign="center"
         vertAlign="top"
-        translation="[460, 570]"
+        translation="[460, 590]"
         id="commentLabel"
         font="font:LargeBoldSystemFont"
         text=""
